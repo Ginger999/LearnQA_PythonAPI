@@ -6,4 +6,4 @@ for h in response.history:
     i += 1
     print(f"{i}: {h}")
 
-print(f" \nNumer of redirects: {i} \nURL: {h}")
+print(f" \nNumber of redirects: {i} \nURL: {h}")
