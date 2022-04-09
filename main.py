@@ -1,5 +1,9 @@
 import requests
-response = requests.get("https://playground.learnqa.ru/api/get_text")
-print(response.text)
 
+response = requests.get("https://playground.learnqa.ru/api/long_redirect")
+i = 0
+for h in response.history:
+    i += 1
+    print(f"{i}: {h}")
 
+print(f" \nNumer of redirects: {i} \nURL: {h}")
