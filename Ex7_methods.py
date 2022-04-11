@@ -12,12 +12,14 @@ def print_ex(req_type, method, response):
     msg = "passed"
     if method == "":
         msg = "*** Запрос без параметра method!"
-    if not req_type in types:
+    elif not req_type in types:
         msg = "*** Запрос не из списка!!!"
-    if (req_type != method) and (text != "Wrong method provided" or text == '{"success":"!"}'):
+    elif (req_type != method) and (text != "Wrong method provided" or text == '{"success":"!"}'):
         msg = "*** метод <> тип игнорируется!!!"
+    elif (req_type == method) and (text == "Wrong method provided" or status_code != 200):
+        msg = "*** метод = тип, но выглядит как ошибка!!!"
 
-    print(f"case: {req_type}: {status_code} - {method} {text} | {msg}")
+    print(f"case: {req_type} - method = {method} | {status_code} - {text} | {msg}")
 
 
 URL = "https://playground.learnqa.ru/ajax/api/compare_query_type"
