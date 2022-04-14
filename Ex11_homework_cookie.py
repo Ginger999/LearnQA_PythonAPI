@@ -1,4 +1,3 @@
-import json
 import requests
 
 
@@ -9,7 +8,7 @@ class TestCookie:
 
         # Ожидаемые значения запроса
         expected_status_code = 200
-        expected_cookie_MyCookie = "123451"
+        expected_cookie_MyCookie = "12345"
 
         # Отправляем запрос
         response = requests.get(URL)
@@ -18,7 +17,7 @@ class TestCookie:
         actual_response_code = response.status_code
 
         actual_cookies = dict(response.cookies)
-        print(f"{actual_cookies}")
+        # print(f"{actual_cookies}")
         actual_cookie_MyCookie = actual_cookies.get("MyCookie")
 
         # Сравниваем актуальные и ожидаемые значения запроса
