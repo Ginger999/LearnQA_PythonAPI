@@ -1,5 +1,4 @@
 import requests
-import datetime
 import pytest
 from requests import Response
 import json
@@ -32,7 +31,7 @@ class TestHeaders:
         except json.JSONDecodeError:
             assert False, f"Response is not in JSON format. Response text is '{response.text}'"
 
-        # Проверяем, что все устройстка из списка есть в ответе
+        # Проверяем, что все устройства из списка есть в ответе
         for source in self.sources:
             pass
             assert source in response_as_dict, f"Response JSON does not have key '{source}'"
